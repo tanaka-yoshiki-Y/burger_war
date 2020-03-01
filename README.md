@@ -243,3 +243,4 @@ $ ./scripts/install_ros_kinetic.sh
 $ chdmod 777 ./scripts/add_robocon2019.sh
 $ ./scripts/add_robocon2019.sh
 ```
+# tanaka-yoshiki
