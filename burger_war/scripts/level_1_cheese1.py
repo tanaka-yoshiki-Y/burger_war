@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# level_1_cheese.py
-# write by yamaguchi takuya @dashimaki360
+# level_1_cheese1.py
+# RESPECT yamaguchi takuya @dashimaki360
 # edit by tanaka yoshiki
 
 
@@ -67,7 +67,8 @@ class CheeseBurger():
             c = x*0.1
             twist = Twist()
             twist.linear.x = x; twist.linear.y = 0; twist.linear.z = 0
-            twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0.5*3.14+c
+            twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0.5*3.14+1/c
+            c = c+0.1
 
         else:
             # error state
