@@ -7,7 +7,7 @@
 
     <!-- sample program node -->
 
-    <node pkg="burger_war" type="level_1_cheese1.py" name="mybot" output="screen"/>
+    <node pkg="burger_war" type="level_1_cheese2.py" name="mybot" output="screen"/>
 
     <!-- END sample program node -->
 

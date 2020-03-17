@@ -17,8 +17,8 @@ class CheeseBurger():
     def __init__(self, bot_name):
         # bot name 
         self.name = bot_name
-        # robot state 'go' or 'back'
-        self.state = 'back' 
+        # robot state 'gogo' or 'back'
+        self.state = 'go' 
         # robot wheel rot 
         self.wheel_rot_r = 0
         self.wheel_rot_l = 0
@@ -26,7 +26,7 @@ class CheeseBurger():
         self.pose_y = 0
 
         # speed [m/s]
-        self.speed = 1
+        self.speed = 0.5
 
         # publisher
         self.vel_pub = rospy.Publisher('cmd_vel', Twist,queue_size=1)
@@ -63,11 +63,11 @@ class CheeseBurger():
 
         elif self.state == 'back':
             # set speed x axis
-            x = -1 * self.speed
+            x = -2 * self.speed
             c = x*0.1
             twist = Twist()
-            twist.linear.x = x; twist.linear.y = 0; twist.linear.z = 0
-            twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0.5*3.14+1/c
+            twist.linear.x = c; twist.linear.y = 0; twist.linear.z = 0
+            twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 2*3.14/c
             c = c+0.1
 
         else:
@@ -85,9 +85,9 @@ class CheeseBurger():
         '''
         update robot state 'go' or 'back'
         '''
-        if self.state == 'go' and self.wheel_rot_r > 30:
+        if self.state == 'go' and self.wheel_rot_r > 27:
             self.state = 'back'
-        elif self.state == 'back' and self.wheel_rot_r < 5:
+        elif self.state == 'back' and self.wheel_rot_r < 1:
             self.state = 'go'
 
     def strategy(self):
